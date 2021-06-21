@@ -35,6 +35,15 @@ def main() -> None:
 
     print(np.eye(3))
     print(np.eye(2, 3))  # 2×3
+    print(np.eye(3) + np.eye(3))
+
+    invMatrix1 = np.linalg.inv(np.eye(3))
+    print(invMatrix1)
+    invMatrix2 = np.linalg.inv(np.array((
+        (1, 2),
+        (2, 1)
+    )))
+    print(invMatrix2)
 
 
 if __name__ == '__main__':
