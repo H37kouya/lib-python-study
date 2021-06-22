@@ -1,4 +1,22 @@
-from typing import Optional, Union
+from typing import Optional, Union, List
+
+
+def a(d: List[int]) -> None:
+    """
+    python3.8まで
+
+    importする必要がある
+    """
+    print(d)
+
+
+def a(d: list[int]) -> None:
+    """
+    python3.9
+
+    importする必要がなくなった
+    """
+    print(d)
 
 
 def main() -> None:
@@ -20,7 +38,7 @@ def format_name(
 
 
 def convert_to_str(v: Union[int, str]) -> str:
-    if type(v) is str:
+    if isinstance(v, str):
         return v
 
     return str(v)
