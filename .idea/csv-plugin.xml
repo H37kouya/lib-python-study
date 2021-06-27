@@ -10,6 +10,20 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/day3/pandas_read_csv/normal_distribution.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/day3/pandas_x_matoplotlib/normal_distribution.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
       </map>
     </option>
   </component>
