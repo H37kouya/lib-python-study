@@ -12,3 +12,4 @@ setuptools==49.6.0.post20210108
 six==1.16.0
 tornado==6.1
 wheel==0.36.2
+pandas~=1.2.5
