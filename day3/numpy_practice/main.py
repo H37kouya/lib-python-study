@@ -45,6 +45,18 @@ def main() -> None:
     )))
     print(invMatrix2)
 
+    print(1e18)
+
+    l2_1 = np.linalg.norm(np.array([1, 2, 3, 2, 1]), ord=2, axis=-1, keepdims=True)
+    print(l2_1)
+    l2_1[True] = 1
+    print(l2_1)
+
+    l2_2 = np.linalg.norm(np.array([1, 2, 3, 2, 1]), ord=2, axis=-1, keepdims=True)
+    print(l2_2)
+    l2_2[False] = 1
+    print(l2_2)
+
 
 if __name__ == '__main__':
     main()
