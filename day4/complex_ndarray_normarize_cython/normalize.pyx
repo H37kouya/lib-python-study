@@ -1,19 +1,27 @@
 import numpy as np
 import math
+cimport numpy as np
+import cython
 
-def c_normalize1(arr: np.ndarray):
-    sum_of_squares: float = 0
-    for c in arr:
-        sum_of_squares += abs(c) ** 2
+ctypedef np.complex128_t DTYPE_t
+
+@cython.boundscheck(False)
+@cython.wraparound(False)
+def c_normalize1(np.ndarray[DTYPE_t, ndim=1] arr):
+    sum_of_squares = 0
+    for v in arr:
+        sum_of_squares += abs(v) ** 2
 
     norm = math.sqrt(sum_of_squares)
     return arr / norm
 
 
-def c_normalize2(arr: np.ndarray) -> np.ndarray:
-    sum_of_squares: float = 0
-    for c in arr:
-        sum_of_squares += abs(c) ** 2
+@cython.boundscheck(False)
+@cython.wraparound(False)
+def c_normalize2(np.ndarray[DTYPE_t, ndim=1] arr):
+    cdef double sum_of_squares = 0
+    for idx in range(len(arr)):
+        sum_of_squares += abs(arr[idx]) ** 2
 
-    norm = math.sqrt(sum_of_squares)
+    cdef double norm = math.sqrt(sum_of_squares)
     return arr / norm

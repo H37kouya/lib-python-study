@@ -41,6 +41,16 @@ def complex_normalize2_cython(complex_arr: np.ndarray):
     timeit(lambda: [normalize.c_normalize2(complex_arr) for _ in range(int(10))])
 
 
+def complex_normalize3(complex_arr: np.ndarray):
+    print("complex_normalize3")
+
+    def f(arr: np.ndarray):
+        sum_of_squares: float = np.linalg.norm(arr, ord=2, axis=-1, keepdims=True)
+        norm = math.sqrt(sum_of_squares)
+        return arr / norm
+
+    timeit(lambda: [f(complex_arr) for _ in range(int(10))])
+
 def timeit(callback) -> None:
     """
     時間を計測する関数
@@ -60,14 +70,16 @@ def timeit(callback) -> None:
 if __name__ == "__main__":
     c1 = np.array([
         1.0, 1.0, 1.0, 1.0
-    ])
+    ], dtype=np.complex128)
     complex_normalize1(c1)
     complex_normalize1_cython(c1)
     complex_normalize2(c1)
     complex_normalize2_cython(c1)
+    complex_normalize3(c1)
 
     c2 = np.random.randn(int(1e6)) + 1j * np.random.randn(int(1e6))
     complex_normalize1(c2)
     complex_normalize1_cython(c2)
     complex_normalize2(c2)
     complex_normalize2_cython(c2)
+    complex_normalize3(c2)
